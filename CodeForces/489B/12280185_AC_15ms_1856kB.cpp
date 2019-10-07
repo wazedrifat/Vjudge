@@ -1,0 +1,44 @@
+#include<bits/stdc++.h>
+#include<vector>
+using namespace std;
+vector<int>b,g;
+long long int c,s,t,i,j,k,n,m,x,y,z;
+int main()
+{
+	cin>>m;
+	for(i=0;i<m;i++)
+	{
+		cin>>x;
+		b.push_back(x);
+	}
+	sort(b.begin(),b.end());
+	y=b.size();
+	cin>>n;
+	for(i=0;i<n;i++)
+	{
+		cin>>x;
+		g.push_back(x);
+	}
+	sort(g.begin(),g.end());
+	z=g.size();
+	for(i=0,c=0;i<y;i++)
+	{
+		for(j=j;j<z&&g[j]-b[i]<=1;j++)
+		{
+			if(abs(g[j]-b[i])==1||g[j]==b[i])
+			{
+				c++;
+				j++;
+				break;
+			}
+			if(g[j]-b[i]>1)
+			{
+				j-=2;
+				break;
+			}
+		}
+		if(i==y||j==z)
+		break;
+	}
+	cout<<c;
+}
